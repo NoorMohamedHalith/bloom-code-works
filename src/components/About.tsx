@@ -1,9 +1,9 @@
 import { GraduationCap, Target, Lightbulb } from "lucide-react";
 
 const About = () => (
-  <section id="about" className="py-24 bg-secondary/30">
+  <section id="about" className="py-24">
     <div className="max-w-6xl mx-auto px-6">
-      <h2 className="section-heading text-center">About Me</h2>
+      <h2 className="section-heading text-center">About <span className="neon-text">Me</span></h2>
       <p className="section-subheading text-center">Getting to know me better</p>
 
       <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -17,36 +17,23 @@ const About = () => (
         </div>
 
         <div className="space-y-6">
-          <div className="flex gap-4 items-start">
-            <div className="p-3 rounded-lg bg-primary/10 text-primary shrink-0">
-              <GraduationCap size={22} />
+          {[
+            { icon: GraduationCap, title: "Education", lines: ["B.Tech in Information Technology", "IFET College of Engineering · Expected 2027"] },
+            { icon: Target, title: "Goal", lines: ["Growing into a skilled frontend & full-stack developer through hands-on projects and internships."] },
+            { icon: Lightbulb, title: "Approach", lines: ["Practical learning, clean design, and user-centered thinking."] },
+          ].map((item) => (
+            <div key={item.title} className="flex gap-4 items-start">
+              <div className="p-3 rounded-lg bg-secondary neon-border shrink-0">
+                <item.icon size={22} className="text-neon-cyan" />
+              </div>
+              <div>
+                <h3 className="font-display font-semibold text-foreground">{item.title}</h3>
+                {item.lines.map((line, i) => (
+                  <p key={i} className="text-muted-foreground text-sm">{line}</p>
+                ))}
+              </div>
             </div>
-            <div>
-              <h3 className="font-display font-semibold text-foreground">Education</h3>
-              <p className="text-muted-foreground text-sm">B.Tech in Information Technology</p>
-              <p className="text-muted-foreground text-sm">IFET College of Engineering · Expected 2027</p>
-            </div>
-          </div>
-
-          <div className="flex gap-4 items-start">
-            <div className="p-3 rounded-lg bg-primary/10 text-primary shrink-0">
-              <Target size={22} />
-            </div>
-            <div>
-              <h3 className="font-display font-semibold text-foreground">Goal</h3>
-              <p className="text-muted-foreground text-sm">Growing into a skilled frontend & full-stack developer through hands-on projects and internships.</p>
-            </div>
-          </div>
-
-          <div className="flex gap-4 items-start">
-            <div className="p-3 rounded-lg bg-primary/10 text-primary shrink-0">
-              <Lightbulb size={22} />
-            </div>
-            <div>
-              <h3 className="font-display font-semibold text-foreground">Approach</h3>
-              <p className="text-muted-foreground text-sm">Practical learning, clean design, and user-centered thinking.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
