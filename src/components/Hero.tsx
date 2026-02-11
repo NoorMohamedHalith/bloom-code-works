@@ -1,5 +1,5 @@
 import { ArrowDown, Github, Linkedin } from "lucide-react";
-import profileImg from "@/assets/profile.jpg";
+import profileImg from "@/assets/profile.png";
 
 const Hero = () => {
   const scrollTo = (id: string) => {
