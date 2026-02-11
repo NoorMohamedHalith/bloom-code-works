@@ -1,22 +1,13 @@
 const skillCategories = [
-  {
-    title: "Programming Languages",
-    skills: ["C", "Python", "Java"],
-  },
-  {
-    title: "Web / Frontend",
-    skills: ["HTML", "CSS", "JavaScript", "UI Design with Figma"],
-  },
-  {
-    title: "Design & Creative Tools",
-    skills: ["Adobe After Effects", "Canva", "Adobe Express"],
-  },
+  { title: "Programming Languages", skills: ["C", "Python", "Java"] },
+  { title: "Web / Frontend", skills: ["HTML", "CSS", "JavaScript", "UI Design with Figma"] },
+  { title: "Design & Creative Tools", skills: ["Adobe After Effects", "Canva", "Adobe Express"] },
 ];
 
 const Skills = () => (
-  <section id="skills" className="py-24">
+  <section id="skills" className="py-24 border-t border-border">
     <div className="max-w-6xl mx-auto px-6">
-      <h2 className="section-heading text-center">Skills</h2>
+      <h2 className="section-heading text-center">My <span className="neon-text">Skills</span></h2>
       <p className="section-subheading text-center">Technologies and tools I work with</p>
 
       <div className="grid md:grid-cols-3 gap-8">
