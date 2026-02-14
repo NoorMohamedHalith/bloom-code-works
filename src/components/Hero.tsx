@@ -1,20 +1,50 @@
 import { ArrowDown, Github, Linkedin } from "lucide-react";
 import profileImg from "@/assets/profile.png";
+import { useEffect, useRef } from "react";
 
 const Hero = () => {
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const particleContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = particleContainerRef.current;
+    if (!container) return;
+    const particles: HTMLDivElement[] = [];
+    const colors = [
+      "hsl(190 100% 50% / 0.5)",
+      "hsl(310 100% 60% / 0.4)",
+      "hsl(270 100% 65% / 0.4)",
+      "hsl(220 100% 60% / 0.4)",
+    ];
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement("div");
+      p.className = "particle";
+      p.style.left = `${Math.random() * 100}%`;
+      p.style.top = `${Math.random() * 100 + 100}%`;
+      p.style.background = colors[Math.floor(Math.random() * colors.length)];
+      p.style.width = `${2 + Math.random() * 3}px`;
+      p.style.height = p.style.width;
+      p.style.animationDuration = `${8 + Math.random() * 12}s`;
+      p.style.animationDelay = `${Math.random() * 10}s`;
+      container.appendChild(p);
+      particles.push(p);
+    }
+    return () => particles.forEach((p) => p.remove());
+  }, []);
+
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20">
-      <div className="max-w-6xl mx-auto px-6 w-full">
+    <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden cyberpunk-grid">
+      <div ref={particleContainerRef} className="absolute inset-0 overflow-hidden pointer-events-none" />
+      <div className="max-w-6xl mx-auto px-6 w-full relative z-10">
         <div className="flex flex-col-reverse md:flex-row items-center gap-12">
           <div className="flex-1 space-y-6">
             <p className="neon-text font-medium text-sm tracking-wider uppercase">Hello, I'm</p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-              Noor Mohamed<br />
-              <span className="neon-text">Halith R</span>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <span className="text-foreground">Noor Mohamed</span><br />
+              <span className="neon-gradient-heading">Halith R</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-lg">
               Frontend & UI/UX Developer <span className="neon-text-magenta">|</span> B.Tech IT Student
@@ -24,10 +54,10 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
-              <button onClick={() => scrollTo("projects")} className="neon-btn">
+              <button onClick={() => scrollTo("projects")} className="neon-btn multicolor-border">
                 View Projects
               </button>
-              <button onClick={() => scrollTo("contact")} className="neon-btn-outline">
+              <button onClick={() => scrollTo("contact")} className="neon-btn-outline multicolor-border">
                 Contact Me
               </button>
             </div>
@@ -44,8 +74,8 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="flex-shrink-0">
-            <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden neon-glow border-2 border-neon-cyan/30">
+          <div className="flex-shrink-0 mt-8 md:mt-16">
+            <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden multicolor-border neon-glow">
               <img src={profileImg} alt="Noor Mohamed Halith R" className="w-full h-full object-cover" />
             </div>
           </div>

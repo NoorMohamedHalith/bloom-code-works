@@ -30,7 +30,7 @@ const experiences = [
 const Experience = () => (
   <section id="experience" className="py-24 border-t border-border">
     <div className="max-w-6xl mx-auto px-6">
-      <h2 className="section-heading text-center"><span className="neon-text">Experience</span></h2>
+      <h2 className="section-heading text-center"><span className="neon-gradient-heading">Experience</span></h2>
       <p className="section-subheading text-center">Internships and academic projects</p>
 
       <div className="relative max-w-2xl mx-auto">
@@ -47,7 +47,7 @@ const Experience = () => (
                   <BookOpen size={14} className="text-neon-magenta" />
                 )}
               </div>
-              <div className="bg-card border border-border rounded-lg p-5 card-hover">
+              <div className="bg-card rounded-lg p-5 card-hover multicolor-border">
                 <h3 className="font-display font-semibold text-foreground">{exp.title}</h3>
                 <p className="neon-text text-sm mt-1">{exp.org}</p>
                 <ul className="mt-3 space-y-1">
