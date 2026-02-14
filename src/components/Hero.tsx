@@ -19,7 +19,7 @@ const Hero = () => {
       "hsl(270 100% 65% / 0.4)",
       "hsl(220 100% 60% / 0.4)",
     ];
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 35; i++) {
       const p = document.createElement("div");
       p.className = "particle";
       p.style.left = `${Math.random() * 100}%`;
@@ -74,9 +74,9 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="flex-shrink-0 mt-8 md:mt-16">
+          <div className="flex-shrink-0 mt-12 md:mt-24">
             <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden multicolor-border neon-glow">
-              <img src={profileImg} alt="Noor Mohamed Halith R" className="w-full h-full object-cover" />
+              <img src={profileImg} alt="Noor Mohamed Halith R" className="w-full h-full object-cover object-top" />
             </div>
           </div>
         </div>
