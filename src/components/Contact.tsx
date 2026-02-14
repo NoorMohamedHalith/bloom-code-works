@@ -1,38 +1,135 @@
-import { Mail, Phone, Github, Linkedin } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Send } from "lucide-react";
+import { useState } from "react";
 
 const contactLinks = [
-  { icon: Mail, label: "contactnrmdhalith@gmail.com", href: "mailto:contactnrmdhalith@gmail.com" },
-  { icon: Phone, label: "+91 93618 60781", href: "tel:+919361860781" },
   { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/noor-mohamed-halith" },
   { icon: Github, label: "GitHub Profile", href: "https://github.com/NoorMohamedHalith" },
 ];
 
-const Contact = () => (
-  <section id="contact" className="py-24 border-t border-border">
-    <div className="max-w-6xl mx-auto px-6">
-      <h2 className="section-heading text-center">Get In <span className="neon-text">Touch</span></h2>
-      <p className="section-subheading text-center">Let's connect</p>
+const Contact = () => {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-      <div className="max-w-md mx-auto space-y-4">
-        {contactLinks.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-4 p-4 bg-card border border-border rounded-lg transition-all duration-300 hover:border-neon-cyan/40 group card-hover"
-          >
-            <div className="p-2 rounded-lg bg-secondary border border-border text-muted-foreground group-hover:text-neon-cyan group-hover:border-neon-cyan/40 transition-all duration-300"
-              style={{ transition: "box-shadow 0.3s" }}
-            >
-              <link.icon size={20} />
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+
+    // Send via email using mailto
+    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
+    );
+    window.open(`mailto:contactnrmdhalith@gmail.com?subject=${subject}&body=${body}`, "_blank");
+
+    // Send via SMS
+    const smsBody = encodeURIComponent(
+      `From: ${form.name} (${form.email}) - ${form.message}`
+    );
+    window.open(`sms:+919361860781?body=${smsBody}`, "_blank");
+
+    setTimeout(() => {
+      setSending(false);
+      setForm({ name: "", email: "", phone: "", message: "" });
+    }, 1000);
+  };
+
+  return (
+    <section id="contact" className="py-24 border-t border-border">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="section-heading text-center">Get In <span className="neon-gradient-heading">Touch</span></h2>
+        <p className="section-subheading text-center">Let's connect</p>
+
+        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          {/* Contact Form */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-sm text-muted-foreground mb-1">Your Name</label>
+              <input
+                type="text"
+                required
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground text-sm focus:outline-none focus:border-neon-cyan/60 transition-colors multicolor-border"
+                placeholder="John Doe"
+              />
             </div>
-            <span className="text-foreground text-sm font-medium group-hover:text-neon-cyan transition-colors duration-300">{link.label}</span>
-          </a>
-        ))}
+            <div>
+              <label className="block text-sm text-muted-foreground mb-1">Your Email</label>
+              <input
+                type="email"
+                required
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground text-sm focus:outline-none focus:border-neon-cyan/60 transition-colors multicolor-border"
+                placeholder="john@example.com"
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-muted-foreground mb-1">Your Phone</label>
+              <input
+                type="tel"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground text-sm focus:outline-none focus:border-neon-cyan/60 transition-colors multicolor-border"
+                placeholder="+91 XXXXX XXXXX"
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-muted-foreground mb-1">Message</label>
+              <textarea
+                required
+                rows={4}
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground text-sm focus:outline-none focus:border-neon-cyan/60 transition-colors resize-none multicolor-border"
+                placeholder="Your message..."
+              />
+            </div>
+            <button type="submit" disabled={sending} className="neon-btn multicolor-border flex items-center gap-2">
+              <Send size={16} />
+              {sending ? "Sending..." : "Send Message"}
+            </button>
+          </form>
+
+          {/* Contact Info */}
+          <div className="space-y-4">
+            <a
+              href="mailto:contactnrmdhalith@gmail.com"
+              className="flex items-center gap-4 p-4 bg-card rounded-lg transition-all duration-300 group card-hover multicolor-border"
+            >
+              <div className="p-2 rounded-lg bg-secondary text-muted-foreground group-hover:text-neon-cyan transition-all duration-300">
+                <Mail size={20} />
+              </div>
+              <span className="text-foreground text-sm font-medium group-hover:text-neon-cyan transition-colors duration-300">contactnrmdhalith@gmail.com</span>
+            </a>
+            <a
+              href="tel:+919361860781"
+              className="flex items-center gap-4 p-4 bg-card rounded-lg transition-all duration-300 group card-hover multicolor-border"
+            >
+              <div className="p-2 rounded-lg bg-secondary text-muted-foreground group-hover:text-neon-cyan transition-all duration-300">
+                <Phone size={20} />
+              </div>
+              <span className="text-foreground text-sm font-medium group-hover:text-neon-cyan transition-colors duration-300">+91 93618 60781</span>
+            </a>
+            {contactLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 bg-card rounded-lg transition-all duration-300 group card-hover multicolor-border"
+              >
+                <div className="p-2 rounded-lg bg-secondary text-muted-foreground group-hover:text-neon-cyan transition-all duration-300">
+                  <link.icon size={20} />
+                </div>
+                <span className="text-foreground text-sm font-medium group-hover:text-neon-cyan transition-colors duration-300">{link.label}</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Contact;

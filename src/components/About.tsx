@@ -3,7 +3,7 @@ import { GraduationCap, Target, Lightbulb } from "lucide-react";
 const About = () => (
   <section id="about" className="py-24">
     <div className="max-w-6xl mx-auto px-6">
-      <h2 className="section-heading text-center">About <span className="neon-text">Me</span></h2>
+      <h2 className="section-heading text-center">About <span className="neon-gradient-heading">Me</span></h2>
       <p className="section-subheading text-center">Getting to know me better</p>
 
       <div className="grid md:grid-cols-2 gap-12 items-start">

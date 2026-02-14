@@ -3,11 +3,11 @@ import { Database, Mail, ShoppingCart } from "lucide-react";
 const Projects = () => (
   <section id="projects" className="py-24 border-t border-border">
     <div className="max-w-6xl mx-auto px-6">
-      <h2 className="section-heading text-center"><span className="neon-text">Projects</span></h2>
+      <h2 className="section-heading text-center"><span className="neon-gradient-heading">Projects</span></h2>
       <p className="section-subheading text-center">Things I've built</p>
 
       <div className="max-w-2xl mx-auto">
-        <div className="bg-card border border-border rounded-lg overflow-hidden card-hover">
+        <div className="bg-card rounded-lg overflow-hidden card-hover multicolor-border">
           <div className="p-8">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 rounded-lg bg-secondary neon-border">
