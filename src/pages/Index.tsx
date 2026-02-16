@@ -7,9 +7,11 @@ import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 
 const Index = () => (
-  <div className="min-h-screen bg-background">
+  <div className="min-h-screen bg-background cursor-none md:cursor-none">
+    <CustomCursor />
     <Navbar />
     <Hero />
     <About />

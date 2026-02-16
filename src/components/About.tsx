@@ -1,12 +1,14 @@
 import { GraduationCap, Target, Lightbulb } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import SectionBackground from "@/components/SectionBackground";
 
 const About = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="about" className="py-24">
-      <div ref={ref} className={`max-w-6xl mx-auto px-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+    <section id="about" className="py-24 relative">
+      <SectionBackground variant="orbs" />
+      <div ref={ref} className={`max-w-6xl mx-auto px-6 transition-all duration-700 relative z-10 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <h2 className="section-heading text-center">About <span className="neon-gradient-heading">Me</span></h2>
         <p className="section-subheading text-center">Getting to know me better</p>
 

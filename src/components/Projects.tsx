@@ -1,13 +1,15 @@
 import { Database, Mail, ShoppingCart } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import trolleyPrototype from "@/assets/trolley-prototype.jpeg";
+import SectionBackground from "@/components/SectionBackground";
 
 const Projects = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="projects" className="py-24 border-t border-border">
-      <div ref={ref} className={`max-w-6xl mx-auto px-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+    <section id="projects" className="py-24 border-t border-border relative">
+      <SectionBackground variant="orbs" />
+      <div ref={ref} className={`max-w-6xl mx-auto px-6 transition-all duration-700 relative z-10 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <h2 className="section-heading text-center"><span className="neon-gradient-heading">Projects</span></h2>
         <p className="section-subheading text-center">Things I've built</p>
 

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import SectionBackground from "@/components/SectionBackground";
 
 const contactLinks = [
   { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/noor-mohamed-halith" },
@@ -42,8 +43,9 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 border-t border-border">
-      <div ref={ref} className={`max-w-6xl mx-auto px-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+    <section id="contact" className="py-24 border-t border-border relative">
+      <SectionBackground variant="dots" />
+      <div ref={ref} className={`max-w-6xl mx-auto px-6 transition-all duration-700 relative z-10 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <h2 className="section-heading text-center">Get In <span className="neon-gradient-heading">Touch</span></h2>
         <p className="section-subheading text-center">Let's connect</p>
 

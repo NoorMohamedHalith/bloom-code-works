@@ -1,5 +1,6 @@
 import { Briefcase, BookOpen } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import SectionBackground from "@/components/SectionBackground";
 
 const experiences = [
   {
@@ -32,8 +33,9 @@ const Experience = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="experience" className="py-24 border-t border-border">
-      <div ref={ref} className={`max-w-6xl mx-auto px-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+    <section id="experience" className="py-24 border-t border-border relative">
+      <SectionBackground variant="dots" />
+      <div ref={ref} className={`max-w-6xl mx-auto px-6 transition-all duration-700 relative z-10 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <h2 className="section-heading text-center"><span className="neon-gradient-heading">Experience</span></h2>
         <p className="section-subheading text-center">Internships and academic projects</p>
 
