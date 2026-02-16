@@ -1,5 +1,6 @@
 import { Database, Mail, ShoppingCart } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import trolleyPrototype from "@/assets/trolley-prototype.jpeg";
 
 const Projects = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -12,6 +13,9 @@ const Projects = () => {
 
         <div className="max-w-2xl mx-auto">
           <div className="bg-card rounded-lg overflow-hidden card-hover multicolor-border">
+            <div className="w-full overflow-hidden">
+              <img src={trolleyPrototype} alt="Prototype of Advanced Automatic Bill Generating Trolley showing LCD display with item pricing" className="w-full h-56 object-cover" />
+            </div>
             <div className="p-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 rounded-lg bg-secondary neon-border">
