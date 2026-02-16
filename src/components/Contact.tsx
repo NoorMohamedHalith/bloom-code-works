@@ -4,6 +4,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import SectionBackground from "@/components/SectionBackground";
+import TypingText from "@/components/TypingText";
 
 const contactLinks = [
   { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/noor-mohamed-halith" },
@@ -30,7 +31,6 @@ const Contact = () => {
       toast({ title: "Message sent!", description: "Thanks for reaching out. I'll get back to you soon." });
       setForm({ name: "", email: "", phone: "", message: "" });
     } catch (err) {
-      // Fallback to mailto
       const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
       const body = encodeURIComponent(
         `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
@@ -46,7 +46,7 @@ const Contact = () => {
     <section id="contact" className="py-24 border-t border-border relative">
       <SectionBackground variant="dots" />
       <div ref={ref} className={`max-w-6xl mx-auto px-6 transition-all duration-700 relative z-10 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        <h2 className="section-heading text-center">Get In <span className="neon-gradient-heading">Touch</span></h2>
+        <h2 className="section-heading text-center"><TypingText text="Get In " trigger={isVisible} /><span className="neon-gradient-heading"><TypingText text="Touch" trigger={isVisible} delay={500} /></span></h2>
         <p className="section-subheading text-center">Let's connect</p>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">

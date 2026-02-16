@@ -8,10 +8,12 @@ import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import FloatingInsects from "@/components/FloatingInsects";
 
 const Index = () => (
   <div className="min-h-screen bg-background cursor-none md:cursor-none">
     <CustomCursor />
+    <FloatingInsects />
     <Navbar />
     <Hero />
     <About />
