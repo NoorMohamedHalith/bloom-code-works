@@ -1,5 +1,6 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import SectionBackground from "@/components/SectionBackground";
+import TypingText from "@/components/TypingText";
 
 const skillCategories = [
   { title: "Programming Languages", skills: ["C", "Python", "Java"] },
@@ -14,7 +15,7 @@ const Skills = () => {
     <section id="skills" className="py-24 border-t border-border relative">
       <SectionBackground variant="lines" />
       <div ref={ref} className={`max-w-6xl mx-auto px-6 transition-all duration-700 relative z-10 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        <h2 className="section-heading text-center">My <span className="neon-gradient-heading">Skills</span></h2>
+        <h2 className="section-heading text-center"><TypingText text="My " trigger={isVisible} /><span className="neon-gradient-heading"><TypingText text="Skills" trigger={isVisible} delay={400} /></span></h2>
         <p className="section-subheading text-center">Technologies and tools I work with</p>
 
         <div className="grid md:grid-cols-3 gap-8">

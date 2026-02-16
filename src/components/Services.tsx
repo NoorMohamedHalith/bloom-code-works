@@ -1,6 +1,7 @@
 import { Code, Palette } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import SectionBackground from "@/components/SectionBackground";
+import TypingText from "@/components/TypingText";
 
 const services = [
   {
@@ -24,7 +25,7 @@ const Services = () => {
     <section id="services" className="py-24 border-t border-border relative">
       <SectionBackground variant="lines" />
       <div ref={ref} className={`max-w-6xl mx-auto px-6 transition-all duration-700 relative z-10 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        <h2 className="section-heading text-center"><span className="neon-gradient-heading">Services</span></h2>
+        <h2 className="section-heading text-center"><span className="neon-gradient-heading"><TypingText text="Services" trigger={isVisible} /></span></h2>
         <p className="section-subheading text-center">What I can help with</p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
