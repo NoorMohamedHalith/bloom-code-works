@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import FloatingInsects from "@/components/FloatingInsects";
+import BackToTop from "@/components/BackToTop";
 
 const Index = () => (
   <div className="min-h-screen bg-background cursor-none md:cursor-none">
@@ -23,6 +24,7 @@ const Index = () => (
     <Services />
     <Contact />
     <Footer />
+    <BackToTop />
   </div>
 );
 

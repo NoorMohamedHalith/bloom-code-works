@@ -1,11 +1,18 @@
 import { ArrowDown, Github, Linkedin, Download } from "lucide-react";
 import profileImg from "@/assets/profile.png";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const particleContainerRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +44,24 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden cyberpunk-grid">
-      <div ref={particleContainerRef} className="absolute inset-0 overflow-hidden pointer-events-none" />
+      {/* Parallax background layers */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+      >
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-[0.06]"
+          style={{ background: "radial-gradient(circle, hsl(var(--neon-cyan)), transparent 70%)" }} />
+        <div className="absolute top-1/3 right-1/6 w-80 h-80 rounded-full opacity-[0.05]"
+          style={{ background: "radial-gradient(circle, hsl(var(--neon-magenta)), transparent 70%)" }} />
+      </div>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ transform: `translateY(${scrollY * 0.15}px)` }}
+      >
+        <div className="absolute bottom-1/4 right-1/3 w-64 h-64 rounded-full opacity-[0.04]"
+          style={{ background: "radial-gradient(circle, hsl(var(--neon-purple)), transparent 70%)" }} />
+      </div>
+      <div ref={particleContainerRef} className="absolute inset-0 overflow-hidden pointer-events-none" style={{ transform: `translateY(${scrollY * 0.1}px)` }} />
       <div className="max-w-6xl mx-auto px-6 w-full relative z-10">
         <div className="flex flex-col-reverse md:flex-row items-center gap-12">
           <div className="flex-1 space-y-6">
