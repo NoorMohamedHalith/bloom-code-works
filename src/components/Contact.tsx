@@ -35,7 +35,7 @@ const Contact = () => {
       const body = encodeURIComponent(
         `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
       );
-      window.open(`mailto:contactnrmdhalith@gmail.com?subject=${subject}&body=${body}`, "_blank");
+      window.open(`mailto:contact.nrmdhalith@gmail.com?subject=${subject}&body=${body}`, "_blank");
       toast({ title: "Opening email client", description: "The backend is unavailable, opening your email client instead." });
     } finally {
       setSending(false);
