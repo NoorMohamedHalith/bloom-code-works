@@ -45,7 +45,7 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         from: "Portfolio Contact <onboarding@resend.dev>",
-        to: ["contactnrmdhalith@gmail.com"],
+        to: ["contact.nrmdhalith@gmail.com"],
         subject: `Portfolio Contact from ${name}`,
         html: `
           <h2>New Contact Form Submission</h2>

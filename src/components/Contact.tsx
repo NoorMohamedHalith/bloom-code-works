@@ -35,7 +35,7 @@ const Contact = () => {
       const body = encodeURIComponent(
         `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`
       );
-      window.open(`mailto:contactnrmdhalith@gmail.com?subject=${subject}&body=${body}`, "_blank");
+      window.open(`mailto:contact.nrmdhalith@gmail.com?subject=${subject}&body=${body}`, "_blank");
       toast({ title: "Opening email client", description: "The backend is unavailable, opening your email client instead." });
     } finally {
       setSending(false);
@@ -82,12 +82,12 @@ const Contact = () => {
           </form>
 
           <div className="space-y-4">
-            <a href="mailto:contactnrmdhalith@gmail.com"
+            <a href="mailto:contact.nrmdhalith@gmail.com"
               className="flex items-center gap-4 p-4 bg-card rounded-lg transition-all duration-300 group card-hover multicolor-border">
               <div className="p-2 rounded-lg bg-secondary text-muted-foreground group-hover:text-neon-cyan transition-all duration-300">
                 <Mail size={20} />
               </div>
-              <span className="text-foreground text-sm font-medium group-hover:text-neon-cyan transition-colors duration-300">contactnrmdhalith@gmail.com</span>
+              <span className="text-foreground text-sm font-medium group-hover:text-neon-cyan transition-colors duration-300">contact.nrmdhalith@gmail.com</span>
             </a>
             <a href="tel:+919361860781"
               className="flex items-center gap-4 p-4 bg-card rounded-lg transition-all duration-300 group card-hover multicolor-border">
