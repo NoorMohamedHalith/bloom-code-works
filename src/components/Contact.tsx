@@ -81,7 +81,7 @@ const Contact = () => {
             </button>
           </form>
 
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col justify-center">
             <a href="mailto:contact.nrmdhalith@gmail.com"
               className="flex items-center gap-4 p-4 bg-card rounded-lg transition-all duration-300 group card-hover multicolor-border">
               <div className="p-2 rounded-lg bg-secondary text-muted-foreground group-hover:text-neon-cyan transition-all duration-300">
