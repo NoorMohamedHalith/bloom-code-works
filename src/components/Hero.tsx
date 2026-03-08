@@ -4,6 +4,7 @@ import profileImg from "@/assets/profile.png";
 import { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
+  const { toast } = useToast();
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
