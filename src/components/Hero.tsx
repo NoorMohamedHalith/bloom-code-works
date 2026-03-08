@@ -84,7 +84,7 @@ const Hero = () => {
               <button onClick={() => scrollTo("contact")} className="neon-btn-outline multicolor-border">
                 Contact Me
               </button>
-              <a href="/resume.pdf" download className="neon-btn-outline multicolor-border flex items-center gap-2">
+              <a href="/resume.docx" download="Noor_Mohamed_Halith_Resume.docx" className="neon-btn-outline multicolor-border flex items-center gap-2">
                 <Download size={16} />
                 Resume
               </a>
