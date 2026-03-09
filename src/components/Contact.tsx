@@ -9,6 +9,7 @@ import TypingText from "@/components/TypingText";
 const contactLinks = [
   { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/noor-mohamed-halith" },
   { icon: Github, label: "GitHub Profile", href: "https://github.com/NoorMohamedHalith" },
+  { icon: Instagram, label: "Instagram Profile", href: "https://www.instagram.com/noor_mohamed_halith_r" },
 ];
 
 const Contact = () => {
