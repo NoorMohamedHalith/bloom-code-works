@@ -1,4 +1,4 @@
-import { Mail, Phone, Github, Linkedin, Send } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Send, Instagram } from "lucide-react";
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { supabase } from "@/integrations/supabase/client";
