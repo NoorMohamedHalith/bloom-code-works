@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Download } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Download, Instagram } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import profileImg from "@/assets/profile.png";
 import { useEffect, useRef, useState } from "react";
@@ -100,6 +100,10 @@ const Hero = () => {
               <a href="https://www.linkedin.com/in/noor-mohamed-halith" target="_blank" rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-neon-cyan transition-colors duration-300">
                 <Linkedin size={20} />
+              </a>
+              <a href="https://www.instagram.com/noor_mohamed_halith_r" target="_blank" rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-neon-cyan transition-colors duration-300">
+                <Instagram size={20} />
               </a>
             </div>
           </div>

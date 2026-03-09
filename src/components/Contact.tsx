@@ -1,4 +1,4 @@
-import { Mail, Phone, Github, Linkedin, Send } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Send, Instagram } from "lucide-react";
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { supabase } from "@/integrations/supabase/client";
@@ -9,6 +9,7 @@ import TypingText from "@/components/TypingText";
 const contactLinks = [
   { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/noor-mohamed-halith" },
   { icon: Github, label: "GitHub Profile", href: "https://github.com/NoorMohamedHalith" },
+  { icon: Instagram, label: "Instagram Profile", href: "https://www.instagram.com/noor_mohamed_halith_r" },
 ];
 
 const Contact = () => {
