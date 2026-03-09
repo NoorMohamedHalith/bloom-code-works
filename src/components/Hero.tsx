@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Download } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Download, Instagram } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import profileImg from "@/assets/profile.png";
 import { useEffect, useRef, useState } from "react";
